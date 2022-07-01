@@ -1,6 +1,6 @@
 ##
 args is cluster hostname, separate with a comma...
-`bash install.sh host1,host2,host3`
+`bash install_hadoop_cluster.bash host1,host2,host3`
 *The first one is master.*
 
 ## yarn web ui is master_ip:7438
