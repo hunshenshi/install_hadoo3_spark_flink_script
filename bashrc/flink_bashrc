@@ -1,0 +1,2 @@
+export PATH=$PATH:$FLINK_HOME/bin
+export CLASSPATH=$FLINK_HOME/lib:$CLASSPATH

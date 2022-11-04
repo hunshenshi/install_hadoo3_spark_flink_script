@@ -1,0 +1,2 @@
+export PATH=$PATH:$KAFKA_HOME/bin
+export CLASSPATH=$KAFKA_HOME/libs:$CLASSPATH
