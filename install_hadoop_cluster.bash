@@ -102,7 +102,7 @@ source ${spark_home}/bashrc
 flink_home=$project_root_path/deps/${flink_name}
 if [ ! -d "$flink_name" ]; then
     if [ ! -f "flink-$flinkVersion-bin-scala_2.11.tgz" ]; then
-        wget $mirrorServer/flink/flink-$flinkVersion/flink-$sparkVersion-bin-scala_2.11.tgz
+        wget $mirrorServer/flink/flink-$flinkVersion/flink-$flinkVersion-bin-scala_2.11.tgz
     fi
     tar -zxvf flink-$flinkVersion-bin-scala_2.11.tgz
     mv flink-$flinkVersion ${flink_name}
@@ -134,7 +134,7 @@ yarn-daemon.sh start nodemanager
 mr-jobhistory-daemon.sh start historyserver
 hadoop dfs -mkdir -p /user/spark/eventLog/3.2.1
 spark-submit --class org.apache.spark.examples.SparkPi     --master yarn     --deploy-mode client     --driver-memory 4g     --executor-memory 2g     --executor-cores 1  ${spark_home}/examples/jars/spark-examples_2.12-3.2.1.jar 10
-flink run -m yarn-cluster  -yjm 1024 -ytm 1024 ./examples/streaming/SocketWindowWordCount.jar --hostname $local_ip --port 9002
+flink run -m yarn-cluster  -yjm 1024 -ytm 1024 ${flink_name}/examples/streaming/SocketWindowWordCount.jar --hostname $local_ip --port 9002
 #flink run-application -t yarn-application -p 3 -Dparallelism.default=3 -Djobmanager.memory.process.size=1024m -Dtaskmanager.memory.process.size=1024m -Dtaskmanager.numberOfTaskSlots=2 -Dyarn.application.name="application_test" ./examples/streaming/SocketWindowWordCount.jar --hostname $local_ip --port 9002
 
 if [ $? -ne 0 ]; then
