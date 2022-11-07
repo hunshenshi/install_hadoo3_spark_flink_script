@@ -61,6 +61,7 @@ echo ========================
 for(( i=2;i<=${#host_array[@]};i++)) ; do
 #    echo ssh ${host_array[i]} "mkdir -p $project_root_path/deps"
     ssh ${host_array[i]} "mkdir -p $project_root_path/deps"
+    ssh ${host_array[i]} "rm -rf ${kafka_home}"
     cp -r ${kafka_home} ${kafka_home}0$i
     cd ${kafka_home}0$i/config
     echo `pwd`
